@@ -22,7 +22,15 @@ const questions = [
     {
         type: 'input',
         name: 'github',
-        message: 'What is your GitHub username?'
+        message: 'What is your GitHub username?',
+        validate: usernameInput => {
+            if (usernameInput) {
+                return true;
+            } else {
+                console.log("Please enter your GitHub username!");
+                return false;
+            }
+        }
     },
     {
         type: 'input',
@@ -32,7 +40,15 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'Please enter a description of your project!'
+        message: 'Please enter a description of your project!',
+        validate: descriptionInput => {
+            if (descriptionInput) {
+                return true;
+            } else {
+                console.log("A description of your project is required!");
+                return false;
+            }
+        }
     },
     {
         type: 'input',
