@@ -58,7 +58,7 @@ const questions = [
         type: 'input',
         name: 'contact',
         message: 'Enter any additional information about contacting you:'
-    }, 
+    },
     {
         type: 'list',
         name: 'license',
@@ -69,10 +69,14 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(path.join('./dist', fileName), data, err => {
+    fs.mkdir('./dist', { recursive: true }, (err) => {
         if (err) throw err;
-        console.log('complete!');
-    })
+        fs.writeFile(path.join('./dist', fileName), data, err => {
+            if (err) throw err;
+            console.log('complete!');
+        });
+    });
+
 }
 
 // TODO: Create a function to initialize app
